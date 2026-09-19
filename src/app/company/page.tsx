@@ -147,7 +147,7 @@ export default function CompanyPage() {
         </p>
         <div className="mt-8 flex flex-wrap gap-2">
           {[
-            "GDPR & CCPA workflows",
+            "PIPEDA, GDPR & CCPA workflows",
             "DPA with SCCs available",
             "BAA available on Enterprise",
             "EU AI Act readiness program",

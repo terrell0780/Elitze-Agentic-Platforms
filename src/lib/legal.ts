@@ -15,7 +15,7 @@ export const termsSections: LegalSection[] = [
     heading: "2. Accounts, workspaces and eligibility",
     body: [
       "You must be at least 18 years old and legally able to enter a contract. You are responsible for the accuracy of your account information, for safeguarding your API keys and credentials, and for all activity that occurs under your workspaces.",
-      "Notify us immediately at security@elitze.ai if you suspect unauthorized access. We provide key rotation, scoped credentials and audit logging to help you contain an incident quickly.",
+      "Notify us immediately at security@elitze.ca if you suspect unauthorized access. We provide key rotation, scoped credentials and audit logging to help you contain an incident quickly.",
     ],
   },
   {
@@ -114,7 +114,7 @@ export const termsSections: LegalSection[] = [
     heading: "16. General",
     body: [
       "These terms, together with any order form, the Privacy Policy and the Responsible AI policy, are the entire agreement between us. If a provision is unenforceable, the rest remains in effect. Neither party may assign without consent, except in connection with a merger or sale of substantially all assets.",
-      "We may update these terms; material changes take effect 30 days after notice, and continued use after that date constitutes acceptance. Questions: legal@elitze.ai.",
+      "We may update these terms; material changes take effect 30 days after notice, and continued use after that date constitutes acceptance. Questions: legal@elitze.ca.",
     ],
   },
 ];
@@ -124,7 +124,7 @@ export const privacySections: LegalSection[] = [
     heading: "1. Who we are",
     body: [
       "Elitze Agentic Platforms is the controller of personal data we collect about visitors to our website and administrators of our Services. When we process personal data contained in Customer Content on behalf of a customer, we act as a processor under that customer's instructions and a Data Processing Addendum.",
-      "Contact our privacy team at privacy@elitze.ai.",
+      "Contact our privacy team at privacy@elitze.ca.",
     ],
   },
   {
@@ -162,6 +162,7 @@ export const privacySections: LegalSection[] = [
     heading: "5. Legal bases",
     body: [
       "Where the GDPR or UK GDPR applies, we rely on: performance of a contract (providing the Services), legitimate interests (securing the platform, preventing abuse, improving reliability), legal obligation (tax and accounting records), and consent where required, which you may withdraw at any time.",
+      "As a Canadian organization we also handle personal information in accordance with PIPEDA, applying its accountability, limiting collection, safeguards and openness principles. Where provincial legislation applies — including Quebec's Law 25 — we honour its additional requirements on consent, transparency and the right to portability.",
     ],
   },
   {
@@ -173,8 +174,8 @@ export const privacySections: LegalSection[] = [
   {
     heading: "7. Your rights",
     body: [
-      "Depending on where you live, you may have rights to access, correct, delete, port, restrict or object to processing of your personal data, and to withdraw consent. Residents of California may request disclosure of categories collected and may exercise rights without discriminatory treatment.",
-      "Submit a request to privacy@elitze.ai. We verify identity before acting and respond within the period required by applicable law. If your data sits inside a customer's workspace, we will route your request to that customer as the controller.",
+      "Depending on where you live, you may have rights to access, correct, delete, port, restrict or object to processing of your personal data, and to withdraw consent. Residents of California may request disclosure of categories collected and may exercise rights without discriminatory treatment. Individuals in Canada may request access to their personal information and challenge its accuracy under PIPEDA, and may escalate an unresolved complaint to the Office of the Privacy Commissioner of Canada.",
+      "Submit a request to privacy@elitze.ca. We verify identity before acting and respond within the period required by applicable law. If your data sits inside a customer's workspace, we will route your request to that customer as the controller.",
     ],
   },
   {
@@ -193,7 +194,7 @@ export const privacySections: LegalSection[] = [
     heading: "10. Security",
     body: [
       "We apply TLS 1.3 in transit, AES-256 at rest, tenant isolation across storage and memory namespaces, brokered short-lived credentials, least-privilege access, continuous dependency scanning and quarterly third-party penetration testing. Full detail is published in the Trust Center.",
-      "Report a vulnerability to security@elitze.ai. We operate a coordinated disclosure program and will not pursue legal action against good-faith research conducted within its scope.",
+      "Report a vulnerability to security@elitze.ca. We operate a coordinated disclosure program and will not pursue legal action against good-faith research conducted within its scope.",
     ],
   },
   {
@@ -205,7 +206,7 @@ export const privacySections: LegalSection[] = [
   {
     heading: "12. Children",
     body: [
-      "The Services are not directed to children under 16, and we do not knowingly collect their personal data. If you believe a child has provided us data, contact privacy@elitze.ai and we will delete it.",
+      "The Services are not directed to children under 16, and we do not knowingly collect their personal data. If you believe a child has provided us data, contact privacy@elitze.ca and we will delete it.",
     ],
   },
   {

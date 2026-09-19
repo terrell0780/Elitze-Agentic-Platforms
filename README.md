@@ -69,7 +69,7 @@ build time (or in your host's dashboard):
 NEXT_PUBLIC_SITE_URL=https://yourdomain.com npm run build
 ```
 
-It defaults to `https://elitze.ai`. **Set this before going public** — a
+It defaults to `https://elitze.ca`. **Set this before going public** — a
 canonical pointing at a domain you do not serve will de-index the live site.
 See [DEPLOYMENT.md](DEPLOYMENT.md).
 

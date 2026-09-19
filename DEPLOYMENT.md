@@ -7,7 +7,52 @@ Two things must be handled deliberately before this site goes public: the
 
 ---
 
-## 1. Set your canonical domain
+## 1. Your domain: elitze.ca
+
+**Status: owned and configured.** `NEXT_PUBLIC_SITE_URL=https://elitze.ca` is
+set in `.env.local`, and the code fallback in `src/lib/site.ts` also points to
+`elitze.ca`. Canonicals, sitemap, Open Graph tags, JSON-LD and `security.txt`
+all resolve to it.
+
+### Still to do on the hosting side
+
+`.env.local` only affects builds on this machine. When you deploy:
+
+1. In your host's dashboard (Vercel/Netlify/Cloudflare Pages), add an
+   environment variable `NEXT_PUBLIC_SITE_URL` = `https://elitze.ca`,
+   Production scope.
+2. Add `elitze.ca` as a custom domain in the host, and follow its DNS
+   instructions at your registrar — usually an `A` record for the apex plus a
+   `CNAME` for `www`.
+3. Pick **one** canonical host and redirect the other. Recommended: redirect
+   `www.elitze.ca` to `elitze.ca` (most hosts do this with one toggle).
+   Serving both without a redirect splits your search ranking.
+4. Wait for the TLS certificate to issue (usually minutes), then run:
+
+   ```bash
+   ./scripts/verify-domain.sh https://elitze.ca
+   ```
+
+### A note on .ca domains
+
+CIRA requires registrants to meet Canadian Presence Requirements — as a
+Canadian citizen or permanent resident you qualify personally. If you later
+move the domain into a corporation, transfer the registration to the
+incorporated entity so the registrant on record matches the business that
+owns the site.
+
+### Email addresses
+
+Every contact address on the site is now `@elitze.ca`: `hello@`, `security@`,
+`privacy@` and `legal@`. **These must actually receive mail before launch** —
+`security@` and `privacy@` are published in `security.txt` and in the privacy
+policy as formal contact channels, and a bounced vulnerability report is a
+genuine problem. Google Workspace, Fastmail, or free forwarding through
+Cloudflare Email Routing all work.
+
+---
+
+## 1b. How the domain variable works (reference)
 
 Every public URL the site emits is derived from one environment variable:
 
@@ -29,7 +74,7 @@ NEXT_PUBLIC_SITE_URL=https://yourdomain.com
 
 A canonical tag tells Google *"the authoritative URL for this page is X."*
 If you deploy to `something.vercel.app` while the canonical claims
-`https://elitze.ai`, you are pointing Google at a domain the deployment does
+`https://elitze.ca`, you are pointing Google at a domain the deployment does
 not serve. Typical outcome: your live pages get dropped from the index in
 favour of the declared URL, and Open Graph images 404 because they resolve
 against the wrong host.
@@ -54,7 +99,7 @@ echo 'NEXT_PUBLIC_SITE_URL=https://yourdomain.com' >> .env.local
 
 The `NEXT_PUBLIC_` prefix is required — it is what exposes the value to the
 browser bundle. The variable is read once in `src/lib/site.ts` and defaults to
-`https://elitze.ai` if unset.
+`https://elitze.ca` if unset.
 
 ### Verify after deploying
 

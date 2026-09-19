@@ -24,7 +24,7 @@ export default function TermsPage() {
         title="Terms of Service"
         intro={`These terms govern your use of the ${site.fullName}. They are written to be read — plain language where possible, and no clause that quietly claims ownership of your work.`}
         sections={termsSections}
-        contact="legal@elitze.ai"
+        contact="legal@elitze.ca"
       />
     </>
   );

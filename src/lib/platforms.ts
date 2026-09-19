@@ -225,7 +225,7 @@ app = g.compile(checkpointer=PostgresSaver.from_env())`,
     stack: ["Core Router", "Cache Plane", "Policy Engine"],
     snippet: {
       lang: "bash",
-      code: `curl https://api.elitze.ai/v1/chat/completions \\
+      code: `curl https://api.elitze.ca/v1/chat/completions \\
   -H "Authorization: Bearer $ELITZE_API_KEY" \\
   -H "X-Elitze-Route: quality:high,budget:0.02" \\
   -d '{

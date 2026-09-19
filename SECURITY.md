@@ -4,7 +4,7 @@ Elitze Agentic Platforms — maintained by Terrell Hall (Founder/CEO).
 
 ## Reporting a vulnerability
 
-Email **security@elitze.ai** with a description, reproduction steps, affected
+Email **security@elitze.ca** with a description, reproduction steps, affected
 versions or endpoints, and any proof-of-concept. Please do not open a public
 issue for security reports.
 

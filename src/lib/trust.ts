@@ -178,6 +178,12 @@ export const certifications: {
       "DPA with Standard Contractual Clauses available. A legal obligation we meet, not a certification.",
   },
   {
+    name: "PIPEDA",
+    state: "practice",
+    status:
+      "Canadian federal privacy law. We apply its ten fair information principles; complaints may be escalated to the Privacy Commissioner of Canada.",
+  },
+  {
     name: "CCPA / CPRA",
     state: "practice",
     status:

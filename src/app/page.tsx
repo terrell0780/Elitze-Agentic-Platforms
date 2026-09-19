@@ -316,7 +316,7 @@ export default function Home() {
               "Encryption in transit & at rest",
               "Tenant isolation",
               "Audit ledger on every action",
-              "GDPR & CCPA workflows",
+              "PIPEDA, GDPR & CCPA workflows",
               "NIST AI RMF–aligned controls",
             ].map((c) => (
               <span

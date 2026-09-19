@@ -1,5 +1,5 @@
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://elitze.ai";
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://elitze.ca";
 
 export const owner = {
   name: "Terrell Hall",
@@ -20,11 +20,11 @@ export const site = {
   brain: "ELITZE CORE",
   brainBlurb:
     "The decisioning brain behind every Elitze platform. Core routes every task to the right model, tool, and agent — then learns from the outcome.",
-  domain: "elitze.ai",
+  domain: "elitze.ca",
   url: SITE_URL,
-  email: "hello@elitze.ai",
-  securityEmail: "security@elitze.ai",
-  privacyEmail: "privacy@elitze.ai",
+  email: "hello@elitze.ca",
+  securityEmail: "security@elitze.ca",
+  privacyEmail: "privacy@elitze.ca",
   founded: "2023",
   stats: [
     { value: "10", label: "Agentic platforms", sub: "One control plane" },

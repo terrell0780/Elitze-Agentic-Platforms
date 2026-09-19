@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "How do I report a vulnerability?",
-    a: "Email security@elitze.ai. We acknowledge within one business day and operate a coordinated disclosure program with safe harbor for good-faith research.",
+    a: "Email security@elitze.ca. We acknowledge within one business day and operate a coordinated disclosure program with safe harbor for good-faith research.",
   },
 ];
 
