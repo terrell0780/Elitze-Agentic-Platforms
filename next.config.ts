@@ -40,10 +40,20 @@ const securityHeaders = [
   { key: "X-Permitted-Cross-Domain-Policies", value: "none" },
 ];
 
+// STATIC_EXPORT=1 produces a plain HTML/CSS/JS folder in ./out that can be
+// uploaded to any web host (IONOS shared hosting, S3, cPanel, nginx...).
+// Security headers cannot be sent by Next in that mode - they are served by
+// the generated .htaccess instead (see scripts/build-static.sh).
+const isStaticExport = process.env.STATIC_EXPORT === "1";
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  ...(isStaticExport
+    ? { output: "export" as const, images: { unoptimized: true }, trailingSlash: true }
+    : {}),
   async headers() {
+    if (isStaticExport) return [];
     return [
       { source: "/:path*", headers: securityHeaders },
       {
@@ -53,6 +63,7 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
+    if (isStaticExport) return [];
     return [
       { source: "/security.txt", destination: "/.well-known/security.txt", permanent: true },
       { source: "/privacy-policy", destination: "/privacy", permanent: true },
