@@ -43,3 +43,6 @@ next-env.d.ts
 
 # static export output
 /out/
+
+# packaged upload bundle
+/elitze-ca-site.zip
