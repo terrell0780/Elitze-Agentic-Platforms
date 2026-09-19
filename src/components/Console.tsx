@@ -60,14 +60,14 @@ export function Console() {
   const [goal, setGoal] = useState(goals[0]);
   const [n, setN] = useState(0);
   const [running, setRunning] = useState(true);
+  const selectGoal = (g: string) => {
+    setGoal(g);
+    setN(0);
+    setRunning(true);
+  };
   const logRef = useRef<HTMLDivElement>(null);
 
   const steps = SCRIPT[goal];
-
-  useEffect(() => {
-    setN(0);
-    setRunning(true);
-  }, [goal]);
 
   useEffect(() => {
     if (!running || n >= steps.length) return;
@@ -103,7 +103,7 @@ export function Console() {
           {goals.map((g) => (
             <button
               key={g}
-              onClick={() => setGoal(g)}
+              onClick={() => selectGoal(g)}
               className={`rounded-xl border px-4 py-2 text-[13px] transition ${
                 g === goal
                   ? "border-white/25 bg-white/8 text-foreground"
