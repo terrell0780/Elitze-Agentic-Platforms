@@ -44,6 +44,4 @@ next-env.d.ts
 # static export output
 /out/
 
-# packaged upload bundle
-/elitze-ca-site.zip
-/elitze-ca-*.zip
+# packaged upload bundles are COMMITTED in /downloads so they persist
