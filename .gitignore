@@ -46,3 +46,4 @@ next-env.d.ts
 
 # packaged upload bundle
 /elitze-ca-site.zip
+/elitze-ca-*.zip

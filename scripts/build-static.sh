@@ -8,11 +8,17 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 SITE_URL="${NEXT_PUBLIC_SITE_URL:-https://elitze.ca}"
+BASE_PATH="${BASE_PATH:-}"
 echo "Building static site for: $SITE_URL"
+if [ -n "$BASE_PATH" ]; then
+  echo "Subfolder mode: site will live at ${SITE_URL}${BASE_PATH}/"
+else
+  echo "Root mode: the upload folder IS the domain root"
+fi
 echo ""
 
 rm -rf out
-STATIC_EXPORT=1 NEXT_PUBLIC_SITE_URL="$SITE_URL" npx next build
+STATIC_EXPORT=1 NEXT_PUBLIC_SITE_URL="$SITE_URL" BASE_PATH="$BASE_PATH" npx next build
 
 # ---------------------------------------------------------------------------
 # Apache config for IONOS shared hosting.

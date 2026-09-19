@@ -46,11 +46,21 @@ const securityHeaders = [
 // the generated .htaccess instead (see scripts/build-static.sh).
 const isStaticExport = process.env.STATIC_EXPORT === "1";
 
+// Set BASE_PATH when the site is served from a SUBFOLDER of the domain,
+// e.g. BASE_PATH=/elitze  ->  https://elitze.ca/elitze/
+// Leave unset when the domain's root maps to the upload folder (normal case).
+const basePath = (process.env.BASE_PATH || "").replace(/\/$/, "");
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   ...(isStaticExport
-    ? { output: "export" as const, images: { unoptimized: true }, trailingSlash: true }
+    ? {
+        output: "export" as const,
+        images: { unoptimized: true },
+        trailingSlash: true,
+        ...(basePath ? { basePath, assetPrefix: basePath } : {}),
+      }
     : {}),
   async headers() {
     if (isStaticExport) return [];
