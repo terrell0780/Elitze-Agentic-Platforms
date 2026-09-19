@@ -38,7 +38,7 @@ const SCRIPT: Record<string, Step[]> = {
     { node: "intake", detail: "Document parsed · 214 questions, 9 sections", meta: "1.2s", kind: "route" },
     { node: "route", detail: "Batched to cheapest model clearing 0.93 quality bar", meta: "$0.41 est", kind: "route" },
     { node: "vault.query", detail: "Security policy vault · 1,942 source notes indexed", meta: "44ms", kind: "vault" },
-    { node: "reach.read", detail: "Pulled current SOC 2 + ISO evidence pages", meta: "1.1s", kind: "reach" },
+    { node: "reach.read", detail: "Pulled current security whitepaper + control evidence", meta: "1.1s", kind: "reach" },
     { node: "writer", detail: "214 answers drafted · every claim link-cited", meta: "48s", kind: "tool" },
     { node: "fact-checker", detail: "6 answers flagged low-confidence for review", meta: "8.2s", kind: "gate" },
     { node: "human gate", detail: "Routed to security@acme.com · 6 items", meta: "paused", kind: "gate" },

@@ -113,16 +113,101 @@ export const securityPractices = [
   },
 ];
 
-export const certifications = [
-  { name: "SOC 2 Type II", status: "Report available under NDA" },
-  { name: "ISO/IEC 27001", status: "Information security management" },
-  { name: "ISO/IEC 42001", status: "AI management system" },
-  { name: "GDPR", status: "DPA and SCCs available" },
-  { name: "CCPA / CPRA", status: "Consumer rights workflows" },
-  { name: "HIPAA", status: "BAA available on Enterprise" },
-  { name: "EU AI Act", status: "Readiness program and documentation" },
-  { name: "NIST AI RMF", status: "Mapped controls" },
+/**
+ * COMPLIANCE CLAIMS — READ BEFORE EDITING
+ * ----------------------------------------------------------------------
+ * `state` drives how each item is rendered. Only ever set a claim to
+ * "certified" when you hold the actual signed report or certificate.
+ *
+ *   certified   -> green check. REQUIRES: signed auditor report / certificate
+ *                  number on file. SOC 2 = CPA firm opinion letter.
+ *                  ISO = accredited body certificate. Nothing else qualifies.
+ *   in-progress -> amber. An audit/readiness engagement is genuinely underway.
+ *   planned     -> grey. On the roadmap, not yet started. Safe to show.
+ *   practice    -> neutral. A legal obligation you meet or a framework you
+ *                  align controls to. Not a certification and never shown
+ *                  as one (GDPR, CCPA, HIPAA-via-BAA, NIST AI RMF).
+ *
+ * Misrepresenting a certification is an FTC Section 5 deceptive practice and
+ * can void enterprise contracts for fraud in the inducement. When in doubt,
+ * use "practice" and describe what you actually do.
+ */
+export type ComplianceState =
+  | "certified"
+  | "in-progress"
+  | "planned"
+  | "practice";
+
+export const complianceStateMeta: Record<
+  ComplianceState,
+  { label: string; accent: string; icon: string }
+> = {
+  certified: { label: "Certified", accent: "#22c55e", icon: "check" },
+  "in-progress": { label: "In progress", accent: "#f59e0b", icon: "clock" },
+  planned: { label: "Planned", accent: "#8b90a6", icon: "dot" },
+  practice: { label: "Practice", accent: "#06b6d4", icon: "shield" },
+};
+
+export const certifications: {
+  name: string;
+  state: ComplianceState;
+  status: string;
+}[] = [
+  {
+    name: "SOC 2 Type II",
+    state: "in-progress",
+    status:
+      "Readiness assessment underway. Observation window not yet complete — no report is available today.",
+  },
+  {
+    name: "ISO/IEC 27001",
+    state: "planned",
+    status:
+      "Information security management system being documented ahead of a Stage 1 audit.",
+  },
+  {
+    name: "ISO/IEC 42001",
+    state: "planned",
+    status:
+      "AI management system controls mapped; certification not yet scheduled.",
+  },
+  {
+    name: "GDPR",
+    state: "practice",
+    status:
+      "DPA with Standard Contractual Clauses available. A legal obligation we meet, not a certification.",
+  },
+  {
+    name: "CCPA / CPRA",
+    state: "practice",
+    status:
+      "Consumer rights request workflows operating. We do not sell personal data.",
+  },
+  {
+    name: "HIPAA",
+    state: "practice",
+    status:
+      "There is no such thing as HIPAA certification. We will sign a Business Associate Agreement on Enterprise.",
+  },
+  {
+    name: "EU AI Act",
+    state: "in-progress",
+    status:
+      "Readiness program active: risk classification, technical documentation and transparency obligations.",
+  },
+  {
+    name: "NIST AI RMF",
+    state: "practice",
+    status:
+      "Controls mapped to the Govern, Map, Measure and Manage functions. A voluntary framework, not a certification.",
+  },
 ];
+
+/** Only claims backed by a real artifact. Empty until an audit completes. */
+export const verifiedCertifications = certifications.filter(
+  (c) => c.state === "certified"
+);
+
 
 export const responsiblePrinciples = [
   {

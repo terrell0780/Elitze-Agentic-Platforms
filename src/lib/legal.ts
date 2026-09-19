@@ -66,7 +66,7 @@ export const termsSections: LegalSection[] = [
     heading: "9. Confidentiality and data protection",
     body: [
       "Each party will protect the other's confidential information with at least reasonable care. Our processing of personal data is governed by the Privacy Policy and, where applicable, a Data Processing Addendum incorporating Standard Contractual Clauses.",
-      "Security practices, certifications and sub-processor commitments are described in the Trust Center and form part of our obligations to you.",
+      "Our security practices and sub-processor commitments are described in the Trust Center. Certification status published there reflects the current state of each audit program; we make no warranty that any certification not expressly listed as held in an executed order form has been obtained, and you should not rely on a planned or in-progress status as though it were a completed audit.",
     ],
   },
   {

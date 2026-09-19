@@ -2,6 +2,7 @@ import { pageMeta, JsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { securityPractices, certifications } from "@/lib/trust";
 import { site } from "@/lib/site";
 import { PageHero, Section, Eyebrow, Cta, Code } from "@/components/ui";
+import { ComplianceBadge } from "@/components/ComplianceBadge";
 
 export const metadata = pageMeta({
   title: "Security",
@@ -182,17 +183,27 @@ Acknowledgments: https://${site.domain}/security`}
 
       <div className="border-t border-line bg-[#070810]">
         <Section className="py-16 lg:py-24">
-          <Eyebrow>Attestations</Eyebrow>
+          <Eyebrow>Compliance status</Eyebrow>
+          <h2 className="mt-5 text-2xl font-semibold tracking-tight sm:text-4xl">
+            Claimed only where earned
+          </h2>
+          <p className="mt-4 max-w-2xl text-[14.5px] text-muted">
+            Each framework shows its real state. We do not display a
+            certification badge without a signed report or certificate behind
+            it.
+          </p>
           <div className="mt-8 flex flex-wrap gap-2">
             {certifications.map((c) => (
-              <span
-                key={c.name}
-                className="rounded-xl border border-line bg-[#080a12] px-3.5 py-2 text-[13px] text-foreground/75"
-              >
-                {c.name}
-              </span>
+              <ComplianceBadge key={c.name} name={c.name} state={c.state} />
             ))}
           </div>
+          <p className="mt-6 text-[13px] text-muted">
+            Full detail and current stage for each item is on the{" "}
+            <a href="/trust" className="text-cyan-300 hover:underline">
+              Trust Center
+            </a>
+            .
+          </p>
         </Section>
       </div>
     </>

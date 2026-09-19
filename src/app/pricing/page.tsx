@@ -55,7 +55,7 @@ const tiers = [
       "VPC, on-prem or air-gapped",
       "Bring your own models (vLLM)",
       "Data residency per partner/region",
-      "SOC 2 II, ISO 27001, HIPAA, GDPR",
+      "GDPR, CCPA, DPA + SCCs, BAA available",
       "99.99% SLA, named architect",
       "Reason codes & model risk docs",
     ],

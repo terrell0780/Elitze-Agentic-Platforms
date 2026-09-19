@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { platforms } from "@/lib/platforms";
 import { differentiators, openSource, techModules } from "@/lib/tech";
-import { guardrailLayers, certifications } from "@/lib/trust";
+import { guardrailLayers } from "@/lib/trust";
 import { Section, Eyebrow, Cta, StatRow, Code } from "@/components/ui";
 import { PlatformGrid } from "@/components/PlatformGrid";
 import { CoreDiagram } from "@/components/CoreDiagram";
@@ -308,18 +308,30 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-2">
+          <div className="mt-10 flex flex-wrap items-center gap-3">
             <span className="text-[12px] uppercase tracking-[0.14em] text-muted">
-              Attested:
+              Verifiable today:
             </span>
-            {certifications.map((c) => (
+            {[
+              "Encryption in transit & at rest",
+              "Tenant isolation",
+              "Audit ledger on every action",
+              "GDPR & CCPA workflows",
+              "NIST AI RMF–aligned controls",
+            ].map((c) => (
               <span
-                key={c.name}
+                key={c}
                 className="rounded-lg border border-line bg-[#080a12] px-3 py-1.5 text-[12.5px] text-foreground/70"
               >
-                {c.name}
+                {c}
               </span>
             ))}
+            <Link
+              href="/trust"
+              className="text-[12.5px] font-medium text-cyan-300 hover:underline"
+            >
+              Full compliance status →
+            </Link>
           </div>
         </Section>
       </div>

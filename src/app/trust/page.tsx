@@ -3,6 +3,7 @@ import { pageMeta, JsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 import { certifications, securityPractices, subprocessorNotes } from "@/lib/trust";
 import { site, owner } from "@/lib/site";
 import { PageHero, Section, Eyebrow, Cta } from "@/components/ui";
+import { ComplianceCard } from "@/components/ComplianceBadge";
 
 export const metadata = pageMeta({
   title: "Trust Center",
@@ -124,26 +125,32 @@ export default function TrustPage() {
         <Section className="py-16 lg:py-24">
           <Eyebrow>Certifications & frameworks</Eyebrow>
           <h2 className="mt-5 text-2xl font-semibold tracking-tight sm:text-4xl">
-            Audited, not asserted
+            Where we actually stand
           </h2>
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted">
+            We publish the status of every framework rather than a wall of
+            logos. Nothing below is claimed as certified unless a signed
+            auditor report or certificate exists and we can show it to you.
+          </p>
           <div className="mt-10 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {certifications.map((c) => (
-              <div key={c.name} className="bg-[#070810] p-6">
-                <div className="flex items-center gap-2">
-                  <span className="text-emerald-400">✓</span>
-                  <h3 className="text-[15px] font-medium">{c.name}</h3>
-                </div>
-                <p className="mt-2 text-[12.5px] leading-relaxed text-muted">
-                  {c.status}
-                </p>
-              </div>
+              <ComplianceCard key={c.name} {...c} />
             ))}
           </div>
-          <p className="mt-6 text-[13px] text-muted">
-            Reports, questionnaires and the current sub-processor registry are
-            available to customers and prospects under NDA — request them at{" "}
-            <span className="font-mono text-foreground/80">{site.email}</span>.
-          </p>
+          <div className="mt-8 rounded-2xl border border-amber-400/25 bg-amber-400/6 p-6">
+            <h3 className="text-[14.5px] font-semibold text-amber-300">
+              What you can ask us for today
+            </h3>
+            <p className="mt-2 max-w-3xl text-[13.5px] leading-relaxed text-foreground/75">
+              Our security whitepaper, architecture and data-flow documentation,
+              penetration test summary, sub-processor registry, DPA with
+              Standard Contractual Clauses, and a completed CAIQ or SIG
+              questionnaire. Where an audit is still in progress we will tell
+              you the stage and the expected completion date rather than imply a
+              report exists. Request any of it at{" "}
+              <span className="font-mono text-foreground/90">{site.email}</span>.
+            </p>
+          </div>
         </Section>
       </div>
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site, owner } from "@/lib/site";
 import { PageHero, Section, Eyebrow, StatRow, Cta } from "@/components/ui";
 import { pageMeta } from "@/lib/seo";
@@ -135,18 +136,26 @@ export default function CompanyPage() {
         <h2 className="mt-5 text-2xl font-semibold tracking-tight sm:text-4xl">
           Compliance, in writing
         </h2>
+        <p className="mt-4 max-w-2xl text-[14.5px] text-muted">
+          These are practices in place today. Formal certification status —
+          including what is audited, in progress or merely planned — is
+          published in full on the{" "}
+          <Link href="/trust" className="text-cyan-300 hover:underline">
+            Trust Center
+          </Link>
+          .
+        </p>
         <div className="mt-8 flex flex-wrap gap-2">
           {[
-            "SOC 2 Type II",
-            "ISO 27001",
-            "ISO 42001 (AI management)",
-            "HIPAA",
-            "GDPR",
-            "CCPA",
-            "EU AI Act readiness",
-            "Pen-tested quarterly",
-            "Sub-processor registry",
+            "GDPR & CCPA workflows",
+            "DPA with SCCs available",
+            "BAA available on Enterprise",
+            "EU AI Act readiness program",
+            "NIST AI RMF–aligned controls",
+            "Quarterly penetration testing",
+            "Versioned sub-processor registry",
             "Model risk documentation",
+            "Coordinated vulnerability disclosure",
           ].map((c) => (
             <span
               key={c}

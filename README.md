@@ -62,13 +62,32 @@ Also shipped: [`SECURITY.md`](SECURITY.md), [`/.well-known/security.txt`](public
 
 ### Setting your domain
 
-Canonical URLs, sitemap and OG tags all read one variable. Set it at build time:
+Canonical URLs, sitemap, OG tags and JSON-LD all read one variable. Set it at
+build time (or in your host's dashboard):
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://yourdomain.com npm run build
 ```
 
-It defaults to `https://elitze.ai`.
+It defaults to `https://elitze.ai`. **Set this before going public** — a
+canonical pointing at a domain you do not serve will de-index the live site.
+See [DEPLOYMENT.md](DEPLOYMENT.md).
+
+## Compliance claims — read before editing
+
+Certification claims live in `certifications` in `src/lib/trust.ts`, each with a
+`state`: `certified`, `in-progress`, `planned` or `practice`.
+
+**Nothing is currently marked `certified`, and nothing should be until a signed
+auditor report or certificate is in hand.** SOC 2 Type II and EU AI Act are
+`in-progress`; ISO 27001 and 42001 are `planned`; GDPR, CCPA, HIPAA (BAA) and
+NIST AI RMF are `practice` — obligations met or frameworks aligned to, never
+shown as certifications.
+
+Displaying an unearned certification is an FTC Section 5 deceptive practice and
+can void enterprise contracts for fraud in the inducement. Rationale, the
+requirement for each standard, and how to flip a claim on when earned are in
+[DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## Getting started
 

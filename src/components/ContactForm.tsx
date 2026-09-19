@@ -139,7 +139,7 @@ export function ContactForm() {
               },
               {
                 t: "Security review",
-                b: "SOC 2 II report, pen test summary and sub-processor list on request.",
+                b: "Security whitepaper, pen test summary, sub-processor registry and DPA on request.",
                 link: "/company",
                 cta: "Trust & compliance",
               },

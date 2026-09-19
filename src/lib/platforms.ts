@@ -46,7 +46,7 @@ export const platforms: Platform[] = [
       "Metered billing hooks (Stripe, Orb, Metronome)",
       "Per-tenant model routing & budgets",
       "Prompt + graph versioning with rollback",
-      "SOC 2 evidence export",
+      "Audit evidence export for security reviews",
       "White-label console theming",
     ],
     metrics: [
@@ -265,7 +265,7 @@ app = g.compile(checkpointer=PostgresSaver.from_env())`,
       "RFP / security-questionnaire autofill",
       "Contract redline & obligation extraction",
       "AR collections and dunning sequences",
-      "SSO/SCIM, SOC 2 Type II, ISO 27001, HIPAA, GDPR",
+      "SSO/SCIM, GDPR & CCPA, DPA with SCCs, BAA available",
       "Full lineage: every claim links to a source document",
     ],
     metrics: [
