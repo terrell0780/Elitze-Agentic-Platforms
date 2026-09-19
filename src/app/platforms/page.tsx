@@ -1,14 +1,16 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { platforms } from "@/lib/platforms";
 import { PageHero, Section, Cta } from "@/components/ui";
 import { PlatformGrid } from "@/components/PlatformGrid";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Platforms",
   description:
     "Ten interlocking agentic platforms: AI SaaS, Embedded AI, AI PaaS, AI APIs, B2B AI, B2C AI, B2B2C AI, Generative AI, Predictive AI and Agentic AI.",
-};
+  path: "/platforms",
+});
+
 
 export default function PlatformsPage() {
   return (

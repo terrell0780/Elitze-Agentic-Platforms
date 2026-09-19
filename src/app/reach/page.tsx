@@ -1,14 +1,17 @@
-import type { Metadata } from "next";
 import { techBySlug } from "@/lib/tech";
 import { TechPage } from "@/components/TechPage";
 import { Section, Eyebrow } from "@/components/ui";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
+  title: "Agent Reach",
+  description:
+    "Live internet access for agents across 13+ channels behind one tool contract, with health checks, caching, rate governors and provenance on every fetch.",
+  path: "/reach",
+});
 
 const t = techBySlug("reach")!;
 
-export const metadata: Metadata = {
-  title: t.name,
-  description: t.summary,
-};
 
 const channels = [
   ["Any web page", "Reader", "No auth"],

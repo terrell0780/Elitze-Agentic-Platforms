@@ -1,11 +1,14 @@
-import type { Metadata } from "next";
 import { PageHero, Section, Cta, Eyebrow } from "@/components/ui";
 import { platforms } from "@/lib/platforms";
+import { pageMeta, JsonLd, faqJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Pricing",
-  description: "Usage-based pricing across all ten Elitze platforms.",
-};
+  description:
+    "Usage-based pricing across all ten Elitze platforms, with every metered unit published and budgets enforced before spend happens.",
+  path: "/pricing",
+});
+
 
 const tiers = [
   {
@@ -72,9 +75,45 @@ const meters = [
   ["Checkpoint GB-month", "$0.18", "Durable run state storage"],
 ];
 
+const faqs: [string, string][] = [
+  [
+    "What exactly is an agent step?",
+    "One node execution inside a graph — a model call, a tool call, a retrieval, or a routing decision. Retries caused by our infrastructure are never billed.",
+  ],
+  [
+    "Do I pay provider costs separately?",
+    "Yes. Model tokens are passed through at provider list price with no markup; Elitze charges only the gateway unit on top.",
+  ],
+  [
+    "Can I cap spend?",
+    "Budgets can be set per workspace, tenant, fleet or individual run, with soft warnings and hard stops enforced before a call is made.",
+  ],
+  [
+    "Can I bring my own models?",
+    "On Enterprise, yes — point Core at your vLLM, Bedrock, Vertex or Azure deployment and routing treats them as first-class options.",
+  ],
+  [
+    "Is there a migration path off Elitze?",
+    "Graphs export as LangGraph code, memory is already Markdown in your Obsidian vault, tools are MCP, traces are OpenTelemetry. Leaving is a copy command.",
+  ],
+  [
+    "What about startups and nonprofits?",
+    "$50k in credits for pre-Series-A startups and registered nonprofits, applied against any of the ten platforms.",
+  ],
+];
+
+const faqItems = faqs.map(([q, a]) => ({ q, a }));
+
 export default function PricingPage() {
   return (
     <>
+      <JsonLd data={faqJsonLd(faqItems)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Pricing", path: "/pricing" },
+        ])}
+      />
       <PageHero
         eyebrow="Pricing"
         title={
@@ -172,32 +211,7 @@ export default function PricingPage() {
       <Section className="py-16 lg:py-24">
         <Eyebrow>Questions</Eyebrow>
         <div className="mt-8 grid gap-3 lg:grid-cols-2">
-          {[
-            [
-              "What exactly is an agent step?",
-              "One node execution inside a graph — a model call, a tool call, a retrieval, or a routing decision. Retries caused by our infrastructure are never billed.",
-            ],
-            [
-              "Do I pay provider costs separately?",
-              "Yes. Model tokens are passed through at provider list price with no markup; Elitze charges only the gateway unit on top.",
-            ],
-            [
-              "Can I cap spend?",
-              "Budgets can be set per workspace, tenant, fleet or individual run, with soft warnings and hard stops enforced before a call is made.",
-            ],
-            [
-              "Can I bring my own models?",
-              "On Enterprise, yes — point Core at your vLLM, Bedrock, Vertex or Azure deployment and routing treats them as first-class options.",
-            ],
-            [
-              "Is there a migration path off Elitze?",
-              "Graphs export as LangGraph code, memory is already Markdown in your Obsidian vault, tools are MCP, traces are OpenTelemetry. Leaving is a copy command.",
-            ],
-            [
-              "What about startups and nonprofits?",
-              "$50k in credits for pre-Series-A startups and registered nonprofits, applied against any of the ten platforms.",
-            ],
-          ].map(([q, a]) => (
+          {faqs.map(([q, a]) => (
             <div
               key={q}
               className="rounded-2xl border border-line bg-[#080a12] p-6"

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { platforms } from "@/lib/platforms";
 import { differentiators, openSource, techModules } from "@/lib/tech";
+import { guardrailLayers, certifications } from "@/lib/trust";
 import { Section, Eyebrow, Cta, StatRow, Code } from "@/components/ui";
 import { PlatformGrid } from "@/components/PlatformGrid";
 import { CoreDiagram } from "@/components/CoreDiagram";
@@ -253,6 +254,71 @@ export default function Home() {
                   </span>
                 </span>
               </Link>
+            ))}
+          </div>
+        </Section>
+      </div>
+
+
+      {/* TRUST / GUARDRAILS */}
+      <div className="border-y border-line bg-[#070810]">
+        <Section className="py-20 lg:py-28">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <Eyebrow>Governance</Eyebrow>
+              <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-5xl">
+                Six layers between an instruction and an irreversible action
+              </h2>
+              <p className="mt-5 text-[16px] text-muted">
+                An agent with tool access is a production system with a credit
+                card. Guardrails are enforced at six distinct points in every
+                run — and they fail closed.
+              </p>
+            </div>
+            <Cta href="/guardrails" variant="ghost">
+              See every control
+            </Cta>
+          </div>
+
+          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {guardrailLayers.map((l, i) => (
+              <Link
+                key={l.name}
+                href="/guardrails"
+                className="group rounded-2xl border border-line bg-[#080a12] p-6 transition hover:-translate-y-1 hover:border-white/20"
+              >
+                <div className="flex items-center justify-between">
+                  <span
+                    className="flex h-8 w-8 items-center justify-center rounded-lg font-mono text-[11.5px]"
+                    style={{ background: `${l.accent}1c`, color: l.accent }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[10.5px] uppercase tracking-[0.12em] text-muted">
+                    {l.stage}
+                  </span>
+                </div>
+                <h3 className="mt-4 text-[16px] font-semibold tracking-tight">
+                  {l.name}
+                </h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-muted">
+                  {l.controls[0]}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center gap-2">
+            <span className="text-[12px] uppercase tracking-[0.14em] text-muted">
+              Attested:
+            </span>
+            {certifications.map((c) => (
+              <span
+                key={c.name}
+                className="rounded-lg border border-line bg-[#080a12] px-3 py-1.5 text-[12.5px] text-foreground/70"
+              >
+                {c.name}
+              </span>
             ))}
           </div>
         </Section>

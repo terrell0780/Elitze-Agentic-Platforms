@@ -221,7 +221,7 @@ export const openSource = [
 export const differentiators = [
   {
     title: "Ten platforms, one brain",
-    body: "AppLovin unified ad demand, supply and measurement. Elitze unifies generation, prediction, orchestration and reach — every platform trains the same router.",
+    body: "Most vendors sell you one layer and leave you to stitch the rest. Elitze unifies generation, prediction, orchestration and reach — every platform trains the same router.",
   },
   {
     title: "Memory a human can read",

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { platforms, platformBySlug } from "@/lib/platforms";
 import { Section, Eyebrow, Cta, Code } from "@/components/ui";
+import { pageMeta, JsonLd, platformJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return platforms.map((p) => ({ slug: p.slug }));
@@ -16,7 +17,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const p = platformBySlug(slug);
   if (!p) return { title: "Not found" };
-  return { title: p.name, description: p.summary };
+  return pageMeta({
+    title: `${p.name} — ${p.short}`,
+    description: p.summary,
+    path: `/platforms/${p.slug}`,
+  });
 }
 
 export default async function PlatformPage({
@@ -33,6 +38,14 @@ export default async function PlatformPage({
 
   return (
     <>
+      <JsonLd data={platformJsonLd(p)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Platforms", path: "/platforms" },
+          { name: p.name, path: `/platforms/${p.slug}` },
+        ])}
+      />
       <div className="relative overflow-hidden border-b border-line">
         <div className="absolute inset-0 grid-bg mask-fade opacity-60" />
         <div

@@ -1,16 +1,19 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { techModules, differentiators } from "@/lib/tech";
 import { site } from "@/lib/site";
 import { PageHero, Section, Eyebrow, Cta, StatRow } from "@/components/ui";
 import { CoreDiagram } from "@/components/CoreDiagram";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
+  title: "Technology",
+  description:
+    "Elitze Core is the decisioning brain over all ten platforms: expected-value model routing, semantic caching, policy enforcement and a closed learning loop.",
+  path: "/technology",
+});
 
 const core = techModules[0];
 
-export const metadata: Metadata = {
-  title: "Technology",
-  description: core.summary,
-};
 
 const layers = [
   {

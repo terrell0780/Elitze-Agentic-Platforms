@@ -1,13 +1,16 @@
-import type { Metadata } from "next";
 import { techBySlug } from "@/lib/tech";
 import { TechPage } from "@/components/TechPage";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
+  title: "Graph Studio",
+  description:
+    "Stateful agent orchestration: nodes, conditional edges, cycles, durable checkpoints, human-in-the-loop interrupts and time-travel replay.",
+  path: "/graph",
+});
 
 const t = techBySlug("graph")!;
 
-export const metadata: Metadata = {
-  title: t.name,
-  description: t.summary,
-};
 
 export default function GraphPage() {
   return (

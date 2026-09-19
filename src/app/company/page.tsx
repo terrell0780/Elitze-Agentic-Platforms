@@ -1,11 +1,14 @@
-import type { Metadata } from "next";
-import { site } from "@/lib/site";
+import { site, owner } from "@/lib/site";
 import { PageHero, Section, Eyebrow, StatRow, Cta } from "@/components/ui";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Company",
-  description: `About ${site.legal}.`,
-};
+  description:
+    "Elitze Agentic Platforms, founded by Terrell Hall — building infrastructure that makes autonomous software accountable.",
+  path: "/company",
+});
+
 
 const timeline = [
   ["2023", "Elitze founded around one idea: the model isn't the product, the loop is."],
@@ -38,14 +41,56 @@ export default function CompanyPage() {
       </PageHero>
 
       <Section className="py-16 lg:py-24">
-        <StatRow
+        <div className="rounded-3xl border border-line bg-[#080a12] p-8 lg:p-12">
+          <div className="grid gap-8 lg:grid-cols-[auto_1fr] lg:items-start">
+            <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-indigo-500/30 to-cyan-400/20 text-3xl font-semibold">
+              TH
+            </div>
+            <div>
+              <Eyebrow>Founder &amp; owner</Eyebrow>
+              <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
+                {owner.name}
+              </h2>
+              <p className="mt-1 text-[14px] text-cyan-300">{owner.role}</p>
+              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted">
+                {owner.bio}
+              </p>
+              <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted">
+                {owner.name} owns {site.legal} and sets the direction for the
+                platform suite, the Core router, and the governance standards
+                every agent on the network runs under. Security, privacy and AI
+                governance report directly to the CEO&apos;s office.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                <a
+                  href={owner.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-xl border border-line px-3.5 py-2 text-[13px] transition hover:bg-white/6"
+                >
+                  GitHub ↗
+                </a>
+                <a
+                  href={`mailto:${site.email}`}
+                  className="rounded-xl border border-line px-3.5 py-2 text-[13px] transition hover:bg-white/6"
+                >
+                  {site.email}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <StatRow
           stats={[
             { value: "2023", label: "Founded", sub: "San Francisco & Lisbon" },
             { value: "184", label: "Elitzens", sub: "Across 19 countries" },
             { value: "1,900+", label: "Customers", sub: "Startups to Fortune 100" },
             { value: "$0", label: "Lock-in cost", sub: "Export everything" },
           ]}
-        />
+          />
+        </div>
       </Section>
 
       <div className="border-y border-line bg-[#070810]">

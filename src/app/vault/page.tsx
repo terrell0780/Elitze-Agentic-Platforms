@@ -1,14 +1,17 @@
-import type { Metadata } from "next";
 import { techBySlug } from "@/lib/tech";
 import { TechPage } from "@/components/TechPage";
 import { Section, Eyebrow, Code } from "@/components/ui";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
+  title: "Knowledge Vault",
+  description:
+    "Agent memory as human-readable Markdown: wikilinks, frontmatter, canvas, git-backed history and hybrid vector plus keyword plus graph retrieval.",
+  path: "/vault",
+});
 
 const t = techBySlug("vault")!;
 
-export const metadata: Metadata = {
-  title: t.name,
-  description: t.summary,
-};
 
 export default function VaultPage() {
   return (

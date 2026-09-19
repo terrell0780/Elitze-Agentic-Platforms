@@ -1,0 +1,10 @@
+# Elitze Agentic Platform — coordinated vulnerability disclosure
+Contact: mailto:security@elitze.ai
+Expires: 2027-09-19T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://elitze.ai/.well-known/security.txt
+Policy: https://elitze.ai/security
+Acknowledgments: https://elitze.ai/security
+
+# We do not pursue legal action against good-faith research conducted
+# within the scope published at https://elitze.ai/security

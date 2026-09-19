@@ -1,12 +1,15 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { platforms } from "@/lib/platforms";
 import { PageHero, Section, Eyebrow, Code } from "@/components/ui";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Docs",
-  description: "Quickstarts, SDK references and architecture guides for Elitze.",
-};
+  description:
+    "Quickstarts, SDK references and architecture guides for building, deploying and governing agents on Elitze.",
+  path: "/docs",
+});
+
 
 const guides = [
   {

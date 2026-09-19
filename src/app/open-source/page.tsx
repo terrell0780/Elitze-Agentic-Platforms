@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import { openSource } from "@/lib/tech";
 import { PageHero, Section, Eyebrow } from "@/components/ui";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Open source",
   description:
-    "The open source projects Elitze Agentic Platform is built on — LangGraph, Agent Reach, Obsidian, MCP and more.",
-};
+    "The open source projects Elitze builds on, what each one does for you, and how we contribute upstream.",
+  path: "/open-source",
+});
+
 
 export default function OpenSourcePage() {
   return (
